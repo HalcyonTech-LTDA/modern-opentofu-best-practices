@@ -86,7 +86,7 @@ This plugin establishes production-grade engineering standards for OpenTofu acro
 | Skill Name | Core Competencies | Primary Artifacts |
 | :--- | :--- | :--- |
 | [`modern-opentofu-modular-architecture`](skills/modern-opentofu-modular-architecture/) | Canonical file decomposition, OpenTofu registry pinning, object typing, early variable evaluation, dynamic providers. | `variables.tf`, `versions.tf`, `outputs.tf`, `terraform-docs` |
-| [`modern-opentofu-state-encryption-and-backends`](skills/modern-opentofu-state-encryption-and-backends/) | OpenTofu 1.7+ native encryption (AES-GCM, KMS, PBKDF2), remote backends with distributed state locking, blast-radius segmentation. | `encryption.tofu.hcl`, S3+DynamoDB backend, Azure Blob backend |
+| [`modern-opentofu-state-encryption-and-backends`](skills/modern-opentofu-state-encryption-and-backends/) | OpenTofu 1.7+ native encryption (AES-GCM, KMS, PBKDF2), remote backends with distributed state locking, blast-radius segmentation. | `encryption.tofu`, S3+DynamoDB backend, Azure Blob backend |
 | [`modern-opentofu-testing-and-mocking`](skills/modern-opentofu-testing-and-mocking/) | Native `tofu test` engine, OpenTofu 1.8+ `mock_provider` credential-free unit tests, plan assertions, negative validations. | `tests/*.tftest.hcl` |
 | [`modern-opentofu-security-and-quality-gates`](skills/modern-opentofu-security-and-quality-gates/) | Pre-flight validation, `.tflint.hcl` linting, Trivy security scanning, provider `default_tags` for FinOps, `.pre-commit-config.yaml`. | `.tflint.hcl`, `.pre-commit-config.yaml`, provider configs |
 | [`modern-opentofu-cicd-and-gitops`](skills/modern-opentofu-cicd-and-gitops/) | Passwordless OIDC authentication (AWS, Azure, GCP), deterministic plan/apply separation, PR plan comments, scheduled drift checks. | GitHub Actions workflows, GitLab CI blueprints |
@@ -108,7 +108,7 @@ This plugin establishes production-grade engineering standards for OpenTofu acro
 
 3. **Mandatory Native State & Plan Encryption (OpenTofu 1.7+)**:
    - Storing sensitive values in unencrypted state files is strictly prohibited. Production codebases must declare OpenTofu native `encryption` blocks configured with authenticated encryption (e.g. `aes_gcm` method with 256-bit keys) and secure key providers (`pbkdf2` via environment passphrase, `aws_kms`, `gcp_kms`, `azure_keyvault`, or `openbao`).
-   - Both `state` and `plan` targets must be encrypted (`state { method = ... enforce = true }` and `plan { method = ... enforce = true }`) to prevent credential leakage in CI/CD pipeline artifacts and remote storage buckets.
+   - Both `state` and `plan` targets must be encrypted (`state { method = ... enforced = true }` and `plan { method = ... enforced = true }`) to prevent credential leakage in CI/CD pipeline artifacts and remote storage buckets.
 
 4. **Blast-Radius State Segmentation & Remote Backend Locking**:
    - Storing an entire cloud infrastructure footprint in a single monolithic state file is strictly forbidden. Segment state files by environmental tier (`prod`, `staging`, `dev`) and architectural layer (`network-foundation`, `data-persistence`, `compute-cluster`, `workload-apps`).

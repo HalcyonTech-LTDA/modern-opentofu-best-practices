@@ -5,7 +5,7 @@
 resource "aws_db_instance" "primary_postgres" {
   identifier          = "corp-platform-postgres-prod"
   engine              = "postgres"
-  engine_version       = "16.3"
+  engine_version      = "16.3"
   instance_class      = "db.r6g.xlarge"
   allocated_storage   = 100
   storage_encrypted   = true

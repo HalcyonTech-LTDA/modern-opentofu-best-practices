@@ -37,7 +37,7 @@ When authoring, reviewing, refactoring, testing, or deploying cloud infrastructu
 
 3. **Mandatory Native State & Plan Encryption (OpenTofu 1.7+)**:
    - Storing sensitive values in unencrypted state files is strictly prohibited. Production codebases must declare OpenTofu native `encryption` blocks configured with authenticated encryption (e.g. `aes_gcm` method with 256-bit keys) and secure key providers (`pbkdf2` via environment passphrase, `aws_kms`, `gcp_kms`, `azure_keyvault`, or `openbao`).
-   - Both `state` and `plan` targets must be encrypted (`state { method = ... enforce = true }` and `plan { method = ... enforce = true }`) to prevent credential leakage in CI/CD pipeline artifacts and remote storage buckets.
+   - Both `state` and `plan` targets must be encrypted (`state { method = ... enforced = true }` and `plan { method = ... enforced = true }`) to prevent credential leakage in CI/CD pipeline artifacts and remote storage buckets.
 
 4. **Blast-Radius State Segmentation & Remote Backend Locking**:
    - Storing an entire cloud infrastructure footprint in a single monolithic state file is strictly forbidden. Segment state files by environmental tier (`prod`, `staging`, `dev`) and architectural layer (`network-foundation`, `data-persistence`, `compute-cluster`, `workload-apps`).

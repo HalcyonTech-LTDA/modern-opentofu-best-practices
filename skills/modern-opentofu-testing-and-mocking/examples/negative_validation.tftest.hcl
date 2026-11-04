@@ -1,6 +1,8 @@
 # Negative Testing Suite
 # Asserts that invalid input combinations trigger variable validation failures.
 
+mock_provider "aws" {}
+
 run "expect_failure_invalid_cidr" {
   command = plan
 

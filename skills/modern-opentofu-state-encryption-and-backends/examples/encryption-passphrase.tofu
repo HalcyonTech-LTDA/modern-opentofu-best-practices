@@ -9,7 +9,6 @@ terraform {
       key_length  = 32
       iterations  = 600000
       salt_length = 32
-      hash        = "sha512"
     }
 
     method "aes_gcm" "passphrase_aes_gcm" {

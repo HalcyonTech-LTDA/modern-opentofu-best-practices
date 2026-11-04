@@ -53,7 +53,7 @@ This skill provides comprehensive architectural patterns and configuration speci
   - [Remote Backends & State Locking](./references/remote_backends_and_locking.md)
   - [State Isolation & Blast-Radius Management](./references/state_isolation_and_blast_radius.md)
 - **Reference Implementations**:
-  - [AWS KMS Native Encryption Template](./examples/encryption-kms.tofu.hcl)
-  - [Passphrase PBKDF2 Encryption Template](./examples/encryption-passphrase.tofu.hcl)
+  - [AWS KMS Native Encryption Template](./examples/encryption-kms.tofu)
+  - [Passphrase PBKDF2 Encryption Template](./examples/encryption-passphrase.tofu)
   - [S3 + DynamoDB Backend Architecture](./examples/backend-s3-dynamodb.tf)
   - [Azure Blob Storage with Lease Lock](./examples/backend-azure-blob.tf)

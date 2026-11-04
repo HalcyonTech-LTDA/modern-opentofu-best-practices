@@ -39,11 +39,11 @@ terraform {
 
   required_providers {
     aws = {
-      source  = "opentofu/aws"
+      source  = "hashicorp/aws" # Resolved natively by registry.opentofu.org
       version = "~> 5.50"
     }
     random = {
-      source  = "opentofu/random"
+      source  = "hashicorp/random"
       version = "~> 3.6"
     }
   }

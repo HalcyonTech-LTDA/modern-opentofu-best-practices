@@ -1,6 +1,8 @@
 # Plan-based Assertion Test Suite
 # Validates resource parameters, calculated CIDRs, and tag propagation.
 
+mock_provider "aws" {}
+
 variables {
   vpc_name           = "test-integration-vpc"
   cidr_block         = "172.16.0.0/16"

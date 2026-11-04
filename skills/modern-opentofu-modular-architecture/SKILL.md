@@ -32,7 +32,7 @@ This skill provides comprehensive architectural patterns, typing standards, and 
        required_version = ">= 1.8.0, < 2.0.0"
        required_providers {
          aws = {
-           source  = "opentofu/aws" # Or "hashicorp/aws" proxied through registry.opentofu.org
+           source  = "hashicorp/aws" # Resolved natively by registry.opentofu.org
            version = "~> 5.50"
          }
        }
