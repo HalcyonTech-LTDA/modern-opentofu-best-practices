@@ -223,3 +223,16 @@ tofu test
 This project is licensed under the [MIT License](LICENSE) - see the LICENSE file for details.
 
 Copyright (c) 2026 [Halcyon Tech](https://github.com/HalcyonTech-LTDA).
+
+
+---
+
+## 💡 Prompt Recipes & Use Cases
+
+```markdown
+- Refactor this OpenTofu module to follow modern best practices, strict typing, and validation rules
+- Configure OpenTofu native state and plan encryption using AWS KMS / Azure Key Vault / GCP KMS / PBKDF2
+- Author a tofu test suite using mock_provider and override_resource for credential-free unit testing
+- Set up a zero-secret GitHub Actions CI/CD GitOps pipeline for OpenTofu with passwordless OIDC authentication
+- Safely remove or migrate OpenTofu managed resources using declarative removed and moved blocks
+```

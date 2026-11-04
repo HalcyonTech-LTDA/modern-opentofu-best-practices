@@ -25,9 +25,7 @@
   "suggestedPrompts": [
     "Refactor this OpenTofu module to follow modern best practices, strict typing, and validation rules",
     "Configure OpenTofu native state and plan encryption using AWS KMS / Azure Key Vault / GCP KMS / PBKDF2",
-    "Author a tofu test suite using mock_provider and override_resource for credential-free unit testing",
-    "Set up a zero-secret GitHub Actions CI/CD GitOps pipeline for OpenTofu with passwordless OIDC authentication",
-    "Safely remove or migrate OpenTofu managed resources using declarative removed and moved blocks"
+    "Author a tofu test suite using mock_provider and override_resource for credential-free unit testing"
   ],
   "skills": [
     "skills/modern-opentofu-modular-architecture",
@@ -37,7 +35,5 @@
     "skills/modern-opentofu-cicd-and-gitops",
     "skills/modern-opentofu-lifecycle-and-drift-governance"
   ],
-  "rules": [
-    "rules/modern-opentofu-engineering.md"
-  ]
+  "logo": "assets/logo.svg"
 }
