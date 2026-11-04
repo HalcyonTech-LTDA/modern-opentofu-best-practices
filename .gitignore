@@ -1,0 +1,40 @@
+# OS / Editor artifacts
+.DS_Store
+Thumbs.db
+*.swp
+*.tmp
+*~
+.idea/
+.vscode/
+
+# OpenTofu / Terraform local cache and state files
+.terraform/
+.tofu/
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+crash.log
+crash.*.log
+
+# Plan files & overrides
+*.tfplan
+*.tfplan.binary
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# CLI configuration and lock files
+.terraformrc
+terraform.rc
+!.tofurc
+
+
+# TFLint cache
+.tflint.d/
+.tflint.hcl.lock
+
+# Test artifacts
+tofu_test_report.json
+tofu_test_coverage.html
+junit.xml

@@ -1,0 +1,14 @@
+{
+  "name": "modern-opentofu-best-practices",
+  "description": "Professional modern OpenTofu engineering best practices covering modular architecture & registry distribution, native state and plan encryption (AES-GCM / PBKDF2 / KMS), early variable evaluation & dynamic providers, remote backends & state locking, shift-left testing with native 'tofu test' (provider mocking, resource overrides, assertions), TFLint & Trivy security quality gates, passwordless OIDC CI/CD GitOps pipelines, resource lifecycle controls (prevent_destroy, moved, removed, import), and living README.md runbook documentation.",
+  "author": {
+    "name": "Halcyon Tech",
+    "url": "https://github.com/HalcyonTech-LTDA"
+  },
+  "homepage": "https://github.com/HalcyonTech-LTDA/modern-opentofu-best-practices",
+  "repository": "https://github.com/HalcyonTech-LTDA/modern-opentofu-best-practices",
+  "license": "MIT",
+  "skills": [
+    "./claude/skills/"
+  ]
+}

@@ -1,0 +1,40 @@
+image:
+  name: ghcr.io/opentofu/opentofu:1.8.2
+  entrypoint: [""]
+
+stages:
+  - test
+  - plan
+  - apply
+
+variables:
+  TF_IN_AUTOMATION: "true"
+  TF_INPUT: "0"
+
+fmt_validate:
+  stage: test
+  script:
+    - tofu fmt -check -recursive
+    - tofu init -backend=false
+    - tofu validate
+    - tofu test
+
+plan:
+  stage: plan
+  script:
+    - tofu init
+    - tofu plan -out=tfplan -lock-timeout=5m
+  artifacts:
+    name: "tfplan"
+    paths:
+      - tfplan
+    expire_in: 2 days
+
+apply:
+  stage: apply
+  script:
+    - tofu init
+    - tofu apply -lock-timeout=10m tfplan
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
+      when: manual

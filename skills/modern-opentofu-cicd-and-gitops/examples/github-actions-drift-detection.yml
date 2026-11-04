@@ -1,0 +1,43 @@
+name: "OpenTofu Scheduled Drift Detection"
+
+on:
+  schedule:
+    - cron: '0 4 * * *' # Every night at 04:00 UTC
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  drift-check:
+    name: "Drift Detection Scan"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup OpenTofu
+        uses: opentofu/setup-opentofu@v1
+        with:
+          tofu_version: 1.8.2
+
+      - name: Configure Cloud OIDC Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          aws-region: us-east-1
+
+      - name: OpenTofu Init
+        run: tofu init
+
+      - name: Run Drift Check
+        id: drift
+        run: |
+          tofu plan -detailed-exitcode -no-color -lock=false > drift_report.log 2>&1 || exit_code=$?
+          echo "exit_code=${exit_code}" >> $GITHUB_OUTPUT
+          if [ "${exit_code}" -eq 2 ]; then
+            echo "DRIFT DETECTED!"
+            cat drift_report.log
+            exit 2
+          fi

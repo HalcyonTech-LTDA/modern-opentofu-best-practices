@@ -1,0 +1,43 @@
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "name": "modern-opentofu-best-practices",
+  "displayName": "Modern OpenTofu Best Practices",
+  "version": "1.0.0",
+  "description": "Professional modern OpenTofu engineering best practices covering modular architecture & registry distribution, native state and plan encryption (AES-GCM / PBKDF2 / KMS / Azure Key Vault / GCP KMS / OpenBao), early variable evaluation & dynamic providers, remote backends & state locking, shift-left testing with native 'tofu test' (provider mocking, resource overrides, assertions), TFLint & Trivy security quality gates, passwordless OIDC CI/CD GitOps pipelines, resource lifecycle controls (prevent_destroy, moved, removed, import), and living README.md runbook documentation.",
+  "author": {
+    "name": "Halcyon Tech",
+    "url": "https://github.com/HalcyonTech-LTDA"
+  },
+  "homepage": "https://github.com/HalcyonTech-LTDA/modern-opentofu-best-practices",
+  "repository": "https://github.com/HalcyonTech-LTDA/modern-opentofu-best-practices",
+  "license": "MIT",
+  "keywords": [
+    "opentofu",
+    "iac",
+    "infrastructure-as-code",
+    "terraform",
+    "state-encryption",
+    "tofu-test",
+    "gitops",
+    "cloud-engineering",
+    "best-practices"
+  ],
+  "suggestedPrompts": [
+    "Refactor this OpenTofu module to follow modern best practices, strict typing, and validation rules",
+    "Configure OpenTofu native state and plan encryption using AWS KMS / Azure Key Vault / GCP KMS / PBKDF2",
+    "Author a tofu test suite using mock_provider and override_resource for credential-free unit testing",
+    "Set up a zero-secret GitHub Actions CI/CD GitOps pipeline for OpenTofu with passwordless OIDC authentication",
+    "Safely remove or migrate OpenTofu managed resources using declarative removed and moved blocks"
+  ],
+  "skills": [
+    "skills/modern-opentofu-modular-architecture",
+    "skills/modern-opentofu-state-encryption-and-backends",
+    "skills/modern-opentofu-testing-and-mocking",
+    "skills/modern-opentofu-security-and-quality-gates",
+    "skills/modern-opentofu-cicd-and-gitops",
+    "skills/modern-opentofu-lifecycle-and-drift-governance"
+  ],
+  "rules": [
+    "rules/modern-opentofu-engineering.md"
+  ]
+}

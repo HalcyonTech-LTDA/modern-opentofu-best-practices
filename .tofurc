@@ -1,0 +1,11 @@
+# OpenTofu CLI Configuration File (.tofurc / tofu.rc)
+# Controls provider installation, plugin caching, and network mirror behavior.
+
+plugin_cache_dir = "$HOME/.tofu.d/plugin-cache"
+disable_checkpoint = true
+
+provider_installation {
+  direct {
+    exclude = []
+  }
+}
