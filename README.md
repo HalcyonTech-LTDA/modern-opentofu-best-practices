@@ -1,40 +1,36 @@
+<div align="center">
+
 # Modern OpenTofu Best Practices Plugin
+### Native State Encryption, Shift-Left Mock Testing & OIDC GitOps Pipelines
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![OpenTofu](https://img.shields.io/badge/OpenTofu-1.8+-orange.svg)](https://opentofu.org/)
-[![Antigravity](https://img.shields.io/badge/Antigravity-Plugin-purple.svg)](https://antigravity.google/)
-[![GitHub](https://img.shields.io/badge/Organization-HalcyonTech--LTDA-black.svg)](https://github.com/HalcyonTech-LTDA)
+[![Antigravity Plugin](https://img.shields.io/badge/Antigravity-Plugin%20v1.0.0-4F46E5.svg)](https://antigravity.google)
+[![License: MIT](https://img.shields.io/badge/License-MIT-10B981.svg)](./LICENSE)
+[![Organization](https://img.shields.io/badge/Organization-HalcyonTech--LTDA-black.svg)](https://github.com/HalcyonTech-LTDA)
 
-An enterprise-grade Antigravity plugin establishing automated engineering guardrails, architectural patterns, native cryptographic state encryption, shift-left testing frameworks, and GitOps CI/CD standards for modern cloud infrastructure using **OpenTofu 1.8+**.
+<p align="center">
+  <b>Professional modern OpenTofu engineering best practices covering modular architecture & registry distribution, native state and plan encryption (AES-GCM / PBKDF2 / KMS / Azure Key Vault / GCP KMS / OpenBao), early variable evaluation & dynamic providers, remote backends & state locking, shift-left testing with native 'tofu test' (provider mocking, resource overrides, assertions), TFLint & Trivy security quality gates, passwordless OIDC CI/CD GitOps pipelines, resource lifecycle controls (prevent_destroy, moved, removed, import), and living README.md runbook documentation.</b>
+</p>
+
+</div>
 
 ---
 
-## Installation
+## Installation & Verification
 
-### Antigravity
+### Antigravity CLI (`agy`)
 
-Install directly in Antigravity via the CLI:
+Install directly into your Antigravity environment via the CLI:
 
 ```bash
 agy plugin install https://github.com/HalcyonTech-LTDA/modern-opentofu-best-practices
 ```
 
-Verify that the plugin is installed and ready:
+Verify that the plugin is active and adheres to the strict official schema:
 
 ```bash
 agy plugin list
+agy plugin validate --strict ./modern-opentofu-best-practices
 ```
-
-### Claude Code
-
-Add the Halcyon Tech marketplace once, then install the plugin:
-
-```text
-/plugin marketplace add HalcyonTech-LTDA/halcyon-plugins
-/plugin install modern-opentofu-best-practices@halcyon-plugins
-```
-
-Skills are namespaced by plugin in Claude Code (`/modern-opentofu-best-practices:<skill-name>`). The guardrails in `rules/` load through the skills in `claude/skills/`.
 
 ---
 
@@ -81,6 +77,8 @@ This plugin establishes production-grade engineering standards for OpenTofu acro
 
 ---
 
+---
+
 ## Specialized Skills Index
 
 | Skill Name | Core Competencies | Primary Artifacts |
@@ -91,6 +89,8 @@ This plugin establishes production-grade engineering standards for OpenTofu acro
 | [`modern-opentofu-security-and-quality-gates`](skills/modern-opentofu-security-and-quality-gates/) | Pre-flight validation, `.tflint.hcl` linting, Trivy security scanning, provider `default_tags` for FinOps, `.pre-commit-config.yaml`. | `.tflint.hcl`, `.pre-commit-config.yaml`, provider configs |
 | [`modern-opentofu-cicd-and-gitops`](skills/modern-opentofu-cicd-and-gitops/) | Passwordless OIDC authentication (AWS, Azure, GCP), deterministic plan/apply separation, PR plan comments, scheduled drift checks. | GitHub Actions workflows, GitLab CI blueprints |
 | [`modern-opentofu-lifecycle-and-drift-governance`](skills/modern-opentofu-lifecycle-and-drift-governance/) | `prevent_destroy`, `create_before_destroy`, surgical `ignore_changes`, declarative `moved`/`removed`/`import` blocks, state recovery. | Lifecycle configs, refactoring blocks, disaster recovery runbooks |
+
+---
 
 ---
 
@@ -145,6 +145,8 @@ This plugin establishes production-grade engineering standards for OpenTofu acro
 
 ---
 
+---
+
 ## Quick Start Example: Native State Encryption (OpenTofu 1.7+)
 
 Create `encryption.tofu.hcl`:
@@ -186,6 +188,8 @@ Your state file and speculative plan are now cryptographically secured using 256
 
 ---
 
+---
+
 ## Quick Start Example: Mocked Unit Test (OpenTofu 1.8+)
 
 Create `tests/unit.tftest.hcl`:
@@ -218,21 +222,68 @@ tofu test
 
 ---
 
-## License
+---
 
-This project is licensed under the [MIT License](LICENSE) - see the LICENSE file for details.
+## What's Included (Component Catalog)
 
-Copyright (c) 2026 [Halcyon Tech](https://github.com/HalcyonTech-LTDA).
+### Contextual Rules (`rules/`)
+Automatically loaded to govern and protect project contexts:
+- **[`modern-opentofu-engineering.md`](rules/modern-opentofu-engineering.md)**: >-
 
+### Procedural Skills (`skills/`)
+On-demand actionable workflows and runbooks:
+- **[`/modern-opentofu-cicd-and-gitops`](skills/modern-opentofu-cicd-and-gitops/SKILL.md)**: Use this skill when designing, building, or troubleshooting OpenTofu CI/CD pipelines and GitOps workflows: passwordless cloud authentication via OIDC (AWS IAM Role, Azure Federated Identity, GCP Workload Identity), multi-stage validation (fmt, validate, tflint, trivy), unit testing with provider mocking (tofu test), speculative plan generation (tofu plan -out=tfplan) with strict lock timeouts, PR plan summaries, manual approval gates, deterministic apply (tofu apply tfplan), and scheduled drift detection.
+- **[`/modern-opentofu-lifecycle-and-drift-governance`](skills/modern-opentofu-lifecycle-and-drift-governance/SKILL.md)**: Use this skill when managing resource lifecycles, performing declarative code refactoring, safely unmanaging or importing infrastructure, and running disaster recovery: lifecycle meta-arguments (prevent_destroy, create_before_destroy, surgical ignore_changes), declarative moved blocks for zero-downtime refactors, declarative removed blocks (OpenTofu 1.7+) to decouple resources without destroying cloud assets, declarative import blocks with automatic code generation, safe state operations (tofu state list, show, mv, rm), and living README.md runbook documentation.
+- **[`/modern-opentofu-modular-architecture`](skills/modern-opentofu-modular-architecture/SKILL.md)**: Use this skill when designing, authoring, reviewing, or refactoring OpenTofu modules: standard file layout, semantic version constraints, OpenTofu registry pinning, strict typing with object schemas, custom validation blocks with descriptive errors, early variable evaluation in backend and provider configurations (OpenTofu 1.8+), dynamic provider declarations with for_each, provider-defined functions, module outputs design, and automated living documentation via terraform-docs.
+- **[`/modern-opentofu-security-and-quality-gates`](skills/modern-opentofu-security-and-quality-gates/SKILL.md)**: Use this skill when auditing, hardening, or establishing quality gates for OpenTofu codebases: canonical code formatting (tofu fmt), syntax validation (tofu validate), TFLint rulesets (.tflint.hcl), static security scanning (Trivy, Checkov, tfsec), zero hardcoded secrets policies, mandatory provider default_tags / default_labels for FinOps traceability, least-privilege IAM, and automated pre-commit hooks.
+- **[`/modern-opentofu-state-encryption-and-backends`](skills/modern-opentofu-state-encryption-and-backends/SKILL.md)**: Use this skill when configuring OpenTofu state storage, state and plan encryption, remote backend architectures, state locking, and blast-radius segmentation: native encryption blocks (OpenTofu 1.7+), AES-GCM AEAD, key providers (pbkdf2, aws_kms, gcp_kms, azure_keyvault, openbao), state and plan target enforcement, S3/DynamoDB backends, Azure Blob leasing, Google Cloud Storage backends, and multi-tier state isolation.
+- **[`/modern-opentofu-testing-and-mocking`](skills/modern-opentofu-testing-and-mocking/SKILL.md)**: Use this skill when authoring, structuring, or running OpenTofu tests: native tofu test command, tests/*.tftest.hcl test suites, provider mocking (mock_provider) and resource/data overrides (override_resource, override_data) for zero-cost credential-free unit testing, plan-based assertions (command = plan), ephemeral apply tests (command = apply), custom assertion conditions, and negative validation testing with expect_failures.
+
+---
+
+## Directory Hierarchy
+
+```text
+modern-opentofu-best-practices/
+├── plugin.json              # Official Antigravity manifest (schema v1)
+├── LICENSE                  # MIT License (Copyright 2026 HalcyonTech LTDA)
+├── .gitignore               # System ignores & installed_version.json exclusions
+├── .gitattributes           # Deterministic line endings (* text=auto eol=lf)
+├── README.md                # Golden Standard documentation & runbook
+├── assets/
+│   └── logo.svg             # Official Halcyon Tech corporate vector symbol
+├── rules/                   # Contextual rules discovered automatically
+│   └── modern-opentofu-engineering.md
+├── skills/                  # Actionable procedural skills (Progressive Disclosure)
+│   └── modern-opentofu-cicd-and-gitops/
+│       └── SKILL.md
+│   └── modern-opentofu-lifecycle-and-drift-governance/
+│       └── SKILL.md
+│   └── modern-opentofu-modular-architecture/
+│       └── SKILL.md
+│   └── modern-opentofu-security-and-quality-gates/
+│       └── SKILL.md
+│   └── modern-opentofu-state-encryption-and-backends/
+│       └── SKILL.md
+│   └── modern-opentofu-testing-and-mocking/
+│       └── SKILL.md
+```
 
 ---
 
 ## 💡 Prompt Recipes & Use Cases
 
 ```markdown
-- Refactor this OpenTofu module to follow modern best practices, strict typing, and validation rules
-- Configure OpenTofu native state and plan encryption using AWS KMS / Azure Key Vault / GCP KMS / PBKDF2
-- Author a tofu test suite using mock_provider and override_resource for credential-free unit testing
-- Set up a zero-secret GitHub Actions CI/CD GitOps pipeline for OpenTofu with passwordless OIDC authentication
-- Safely remove or migrate OpenTofu managed resources using declarative removed and moved blocks
+- "Refactor this OpenTofu module to follow modern best practices, strict typing, and validation rules"
+- "Configure OpenTofu native state and plan encryption using AWS KMS / Azure Key Vault / GCP KMS / PBKDF2"
+- "Author a tofu test suite using mock_provider and override_resource for credential-free unit testing"
+- "Set up a zero-secret GitHub Actions CI/CD GitOps pipeline for OpenTofu with passwordless OIDC authentication"
+- "Safely remove or migrate OpenTofu managed resources using declarative removed and moved blocks"
 ```
+
+---
+
+## 📄 License & Corporate Governance
+
+Distributed under the **MIT License**. Copyright (c) 2026 **HalcyonTech LTDA**.  
+Engineered with precision and excellence by [Halcyon Tech](https://github.com/HalcyonTech-LTDA).

@@ -38,3 +38,4 @@ terraform.rc
 tofu_test_report.json
 tofu_test_coverage.html
 junit.xml
+installed_version.json
